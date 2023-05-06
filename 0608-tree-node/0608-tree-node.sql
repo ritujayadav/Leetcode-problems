@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 SELECT id, 
     CASE 
         WHEN p_id IS NULL THEN 'Root'
