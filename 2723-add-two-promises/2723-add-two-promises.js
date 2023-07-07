@@ -1,5 +1,5 @@
 
-var addTwoPromises = async function(promise1, promise2) {
+var addTwoPromises = async function(g, s) {
     
-return await promise1 + await promise2
+return await g + await s
 };
