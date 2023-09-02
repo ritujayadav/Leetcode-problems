@@ -8,7 +8,7 @@ class Solution {
             for (int j = i + 1; j < n; j++) {
                 if (prices[j] <= prices[i]) {
                     discount = prices[j];
-                    break; // Found the first discount, no need to continue searching
+                    break;
                 }
             }
             result[i] = prices[i] - discount;
