@@ -29,10 +29,10 @@ class Reverse
 {
     // Complete the function
     // str: input string
-    public static String reverseWord(String str)
+    public static String reverseWord(String x)
     {
         // Reverse the string str
-        StringBuilder s=new StringBuilder(str);
+        StringBuilder s=new StringBuilder(x);
         return s.reverse().toString();
     }
 }
