@@ -1,22 +1,22 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] arr) {
         int n=arr.length;
-      Set<List<Integer>> st = new HashSet<>();
+      Set<List<Integer>> s=new HashSet<>();
         for (int i = 0; i < n; i++) {
-            Set<Integer> hashset = new HashSet<>();
-            for (int j = i + 1; j < n; j++) {
-                int third = -(arr[i] + arr[j]);
-                if (hashset.contains(third)) {
-                    List<Integer> temp = Arrays.asList(arr[i], arr[j], third);
-                    temp.sort(null);
-                    st.add(temp);
+            Set<Integer> h= new HashSet<>();
+            for (int j=i+1; j<n;j++) {
+                int t=-(arr[i] + arr[j]);
+                if (h.contains(t)) {
+                    List<Integer>tx=Arrays.asList(arr[i],arr[j],t);
+                    tx.sort(null);
+                    s.add(tx);
                 }
-                hashset.add(arr[j]);
+                h.add(arr[j]);
             }
         }
 
-        List<List<Integer>> ans = new ArrayList<>(st);
-        return ans;
+        List<List<Integer>>a=new ArrayList<>(s);
+        return a;
     }
         
     }    
