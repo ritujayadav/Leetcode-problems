@@ -1,6 +1,4 @@
 class Solution {
-    
-    
     public static String sort(String x){
         char sc[]=x.toCharArray();
            Arrays.sort(sc);
@@ -11,23 +9,13 @@ class Solution {
          
         return false;    
         }
-        
-        
-        
-        
-        
-        
         s=sort(s);
         t=sort(t);
-        
         for(int i=0;i<s.length();i++){
-           
                 if(s.charAt(i)!=t.charAt(i)){
                     return false;
                 }
             }
-        
-        
         return true;
         }
     }
