@@ -3,7 +3,7 @@ class Solution {
         ListNode s=head;
         ListNode f=head;
         ListNode k=null;
-        if(s==null || s.next==null) {
+        if(s.next==null) {
             return null; 
         }
         while(f!=null && f.next!=null) {
