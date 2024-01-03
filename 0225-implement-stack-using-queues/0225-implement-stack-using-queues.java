@@ -1,21 +1,21 @@
 class MyStack {
          
-    
+  //queue : use peek for top ...add for push.. poll for pop  
     Queue<Integer>q1;
-    Queue<Integer>q2;
+
 
     public MyStack() {
    q1=new LinkedList<>();
-        q2=new LinkedList<>();
+        
     }
     
     public void push(int x) {
-        q2.add(x);
-        while(!q1.isEmpty()){
-            q2.add(q1.peek());
-            q1.poll();
+       q1.add(x);
+int s=q1.size();
+        for(int i=0;i<s-1;i++){
+            q1.add(q1.peek());
+           q1.poll();
         }
-        swap();
     }
     
     public int pop() {
@@ -33,13 +33,6 @@ q1.poll();
         return q1.isEmpty();
     }
 
-private void swap() {
-Queue<Integer> tem=q1;
-    q1=q2;
-    q2=tem;
-    
-
-}
 }
 
 
