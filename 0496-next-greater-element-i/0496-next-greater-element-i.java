@@ -7,7 +7,7 @@ class Solution {
         Map<Integer,Integer> y=new HashMap<>();
         
         for(int i:nums2){
-        while(!x.isEmpty() && i>x.peek()){
+        while(!x.isEmpty() && i>=x.peek()){
             y.put(x.pop(),i);
             
             
