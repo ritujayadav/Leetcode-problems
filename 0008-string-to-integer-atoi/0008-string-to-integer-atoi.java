@@ -7,17 +7,15 @@ class Solution {
         int sn = 1;
         char c = x[i];
 
-        // Skip leading whitespaces
         while (c == ' ') {
             i++;
             if (i < x.length) {
                 c = x[i];
             } else {
-                break;  // Added to handle case when there are only whitespaces in the input
+                break;  
             }
         }
 
-        // Check for sign
         if (c == '-') {
             sn = -1;
             i++;
@@ -26,7 +24,6 @@ class Solution {
             i++;
         }
 
-        // Process digits
         for (; i < x.length; i++) {
             c = x[i];
             if (c < '0' || c > '9') {
@@ -34,7 +31,7 @@ class Solution {
             } else {
                 int digit = c - '0';
 
-                // Check for overflow before updating the result
+               
                 if (r > (Integer.MAX_VALUE - digit) / 10) {
                     return (sn == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
                 }
@@ -45,11 +42,7 @@ class Solution {
 
         r *= sn;
 
-        if (r > Integer.MAX_VALUE) {
-            return Integer.MAX_VALUE;
-        } else if (r < Integer.MIN_VALUE) {
-            return Integer.MIN_VALUE;
-        }
+       
 
         return (int) r;
     }
