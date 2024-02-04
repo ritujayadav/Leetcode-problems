@@ -41,9 +41,6 @@ class Solution {
         }
 
         r *= sn;
-
-       
-
         return (int) r;
     }
 }
