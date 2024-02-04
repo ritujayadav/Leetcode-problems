@@ -8,30 +8,43 @@ class Solution {
         char c = x[i];
 
         // Skip leading whitespaces
-        while (i < x.length && x[i] == ' ') {
+        while (c == ' ') {
             i++;
+            if (i < x.length) {
+                c = x[i];
+            } else {
+                break;  // Added to handle case when there are only whitespaces in the input
+            }
         }
 
         // Check for sign
-        if (i < x.length && (x[i] == '-' || x[i] == '+')) {
-            sn = (x[i++] == '-') ? -1 : 1;
-        }
-
-        // Process digits
-        while (i < x.length && Character.isDigit(x[i])) {
-            int digit = x[i] - '0';
-
-            // Check for overflow before updating the result
-            if (r > (Integer.MAX_VALUE - digit) / 10) {
-                return (sn == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }
-
-            r = r * 10 + digit;
+        if (c == '-') {
+            sn = -1;
+            i++;
+        } else if (c == '+') {
+            sn = 1;
             i++;
         }
 
+        // Process digits
+        for (; i < x.length; i++) {
+            c = x[i];
+            if (c < '0' || c > '9') {
+                break;
+            } else {
+                int digit = c - '0';
+
+                // Check for overflow before updating the result
+                if (r > (Integer.MAX_VALUE - digit) / 10) {
+                    return (sn == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                }
+
+                r = r * 10 + digit;
+            }
+        }
+
         r *= sn;
-        
+
         if (r > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
         } else if (r < Integer.MIN_VALUE) {
@@ -41,4 +54,3 @@ class Solution {
         return (int) r;
     }
 }
-
